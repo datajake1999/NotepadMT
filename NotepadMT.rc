@@ -91,6 +91,7 @@ BEGIN
     BUTTON      ID_EDIT_CUT
     BUTTON      ID_EDIT_COPY
     BUTTON      ID_EDIT_PASTE
+    BUTTON      ID_EDIT_CLEAR
 	SEPARATOR
     BUTTON      ID_FILE_PRINT
 	SEPARATOR
@@ -165,6 +166,7 @@ BEGIN
 		MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
 		MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
 		MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+		MENUITEM "Clear &Selection\tDel",              ID_EDIT_CLEAR
 	END
 	POPUP "&View"
 	BEGIN
