@@ -25,6 +25,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CMDIFrameWnd)
 	//}}AFX_MSG_MAP
 	// Global help commands
 	ON_COMMAND(ID_HELP_FINDER, CMDIFrameWnd::OnHelpFinder)
+	ON_COMMAND(ID_HELP_INDEX, CMDIFrameWnd::OnHelpIndex)
+	ON_COMMAND(ID_HELP_USING, CMDIFrameWnd::OnHelpUsing)
 	ON_COMMAND(ID_HELP, CMDIFrameWnd::OnHelp)
 	ON_COMMAND(ID_CONTEXT_HELP, CMDIFrameWnd::OnContextHelp)
 	ON_COMMAND(ID_DEFAULT_HELP, CMDIFrameWnd::OnHelpFinder)

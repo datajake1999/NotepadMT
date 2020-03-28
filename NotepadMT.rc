@@ -132,6 +132,8 @@ BEGIN
 	POPUP "&Help"
 	BEGIN
 		MENUITEM "&Help Topics",                ID_HELP_FINDER
+		MENUITEM "&Index",                ID_HELP_INDEX
+		MENUITEM "&Using Help",                ID_HELP_USING
 		MENUITEM SEPARATOR
 		MENUITEM "&About NotepadMT...",          ID_APP_ABOUT
 	END
@@ -179,6 +181,8 @@ BEGIN
 	POPUP "&Help"
 	BEGIN
 		MENUITEM "&Help Topics",                ID_HELP_FINDER
+		MENUITEM "&Index",                ID_HELP_INDEX
+		MENUITEM "&Using Help",                ID_HELP_USING
 		MENUITEM SEPARATOR
 		MENUITEM "&About NotepadMT...",          ID_APP_ABOUT
 	END
