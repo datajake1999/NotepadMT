@@ -168,6 +168,10 @@ BEGIN
 		MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
 		MENUITEM "Clear &Selection\tDel",              ID_EDIT_CLEAR
 		MENUITEM "Select &All\tCtrl+A",              ID_EDIT_SELECT_ALL
+        MENUITEM SEPARATOR
+        MENUITEM "&Find...\tCtrl+F",            ID_EDIT_FIND
+        MENUITEM "F&ind Next\tF3",              ID_EDIT_REPEAT
+        MENUITEM "R&eplace\tCtrl+H",            ID_EDIT_REPLACE
 	END
 	POPUP "&View"
 	BEGIN
@@ -211,6 +215,9 @@ BEGIN
 	"C",            ID_EDIT_COPY,           VIRTKEY,CONTROL
 	"V",            ID_EDIT_PASTE,          VIRTKEY,CONTROL
 	"A",            ID_EDIT_SELECT_ALL,          VIRTKEY,CONTROL
+	"F",            ID_EDIT_FIND,           VIRTKEY,CONTROL
+	VK_F3,          ID_EDIT_REPEAT,         VIRTKEY
+	"H",            ID_EDIT_REPLACE,        VIRTKEY,CONTROL
 	VK_BACK,        ID_EDIT_UNDO,           VIRTKEY,ALT
 	VK_DELETE,      ID_EDIT_CUT,            VIRTKEY,SHIFT
 	VK_INSERT,      ID_EDIT_COPY,           VIRTKEY,CONTROL
