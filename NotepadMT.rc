@@ -167,6 +167,7 @@ BEGIN
 		MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
 		MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
 		MENUITEM "Clear &Selection\tDel",              ID_EDIT_CLEAR
+		MENUITEM "Select &All\tCtrl+A",              ID_EDIT_SELECT_ALL
 	END
 	POPUP "&View"
 	BEGIN
@@ -209,6 +210,7 @@ BEGIN
 	"X",            ID_EDIT_CUT,            VIRTKEY,CONTROL
 	"C",            ID_EDIT_COPY,           VIRTKEY,CONTROL
 	"V",            ID_EDIT_PASTE,          VIRTKEY,CONTROL
+	"A",            ID_EDIT_SELECT_ALL,          VIRTKEY,CONTROL
 	VK_BACK,        ID_EDIT_UNDO,           VIRTKEY,ALT
 	VK_DELETE,      ID_EDIT_CUT,            VIRTKEY,SHIFT
 	VK_INSERT,      ID_EDIT_COPY,           VIRTKEY,CONTROL
