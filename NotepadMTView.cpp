@@ -28,6 +28,7 @@ BEGIN_MESSAGE_MAP(CNotepadMTView, CEditView)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, CEditView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, CEditView::OnFilePrintPreview)
 	ON_COMMAND(ID_EDIT_CLEAR_ALL, OnClearDocument)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_CLEAR_ALL, OnUpdateClearDocument)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -90,6 +91,19 @@ void CNotepadMTView::OnClearDocument()
 	// Select all contents and delete
 	CEditView::OnEditSelectAll();
 	CEditView::OnEditClear();
+}
+
+void CNotepadMTView::OnUpdateClearDocument(CCmdUI* pCmdUI)
+{
+	// If the document is empty, the Clear Document menu item will be unavailable
+	if (CEditView::GetBufferLength() != 0)
+	{
+		pCmdUI->Enable(TRUE);
+	}
+	else
+	{
+		pCmdUI->Enable(FALSE);
+	}
 }
 
 /////////////////////////////////////////////////////////////////////////////

@@ -34,6 +34,7 @@ public:
 	virtual void OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo);
 	virtual void OnEndPrinting(CDC* pDC, CPrintInfo* pInfo);
 	virtual void OnClearDocument();
+	virtual void OnUpdateClearDocument(CCmdUI* pCmdUI);
 	//}}AFX_VIRTUAL
 
 // Implementation
