@@ -27,6 +27,7 @@ BEGIN_MESSAGE_MAP(CNotepadMTView, CEditView)
 	ON_COMMAND(ID_FILE_PRINT, CEditView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, CEditView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, CEditView::OnFilePrintPreview)
+	ON_COMMAND(ID_EDIT_CLEAR_ALL, OnClearDocument)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -82,6 +83,13 @@ void CNotepadMTView::OnEndPrinting(CDC* pDC, CPrintInfo* pInfo)
 {
 	// Default CEditView end printing
 	CEditView::OnEndPrinting(pDC, pInfo);
+}
+
+void CNotepadMTView::OnClearDocument()
+{
+	// Select all contents and delete
+	CEditView::OnEditSelectAll();
+	CEditView::OnEditClear();
 }
 
 /////////////////////////////////////////////////////////////////////////////
