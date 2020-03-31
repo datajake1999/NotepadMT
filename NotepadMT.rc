@@ -119,17 +119,17 @@ BEGIN
 		MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
 		MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
 		MENUITEM SEPARATOR
-		MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
-		MENUITEM "Pa&ge Setup...",             ID_FILE_PAGE_SETUP
+		MENUITEM "P&rint Setup...\tCtrl+R",             ID_FILE_PRINT_SETUP
+		MENUITEM "Pa&ge Setup...\tCtrl+G",             ID_FILE_PAGE_SETUP
 		MENUITEM SEPARATOR
 		MENUITEM "Recent File",                 ID_FILE_MRU_FILE1,GRAYED
 		MENUITEM SEPARATOR
-		MENUITEM "E&xit",                       ID_APP_EXIT
+		MENUITEM "E&xit\tAlt+F4",                       ID_APP_EXIT
 	END
 	POPUP "&View"
 	BEGIN
-		MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
-		MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+		MENUITEM "&Toolbar\tCtrl+T",                    ID_VIEW_TOOLBAR
+		MENUITEM "&Status Bar\tCtrl+U",                 ID_VIEW_STATUS_BAR
 	END
 	POPUP "&Help"
 	BEGIN
@@ -146,20 +146,20 @@ BEGIN
 	BEGIN
 		MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
 		MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
-		MENUITEM "&Close",                      ID_FILE_CLOSE
+		MENUITEM "&Close\tCtrl+F4",                      ID_FILE_CLOSE
 		MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
 		MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
 		MENUITEM SEPARATOR
 		MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
-		MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
-		MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
-		MENUITEM "Pa&ge Setup...",             ID_FILE_PAGE_SETUP
+		MENUITEM "Print Pre&view\tCtrl+W",              ID_FILE_PRINT_PREVIEW
+		MENUITEM "P&rint Setup...\tCtrl+R",             ID_FILE_PRINT_SETUP
+		MENUITEM "Pa&ge Setup...\tCtrl+G",             ID_FILE_PAGE_SETUP
 		MENUITEM SEPARATOR
-		MENUITEM "Sen&d...",					ID_FILE_SEND_MAIL
+		MENUITEM "Sen&d...\tCtrl+E",					ID_FILE_SEND_MAIL
 		MENUITEM SEPARATOR
 		MENUITEM "Recent File",                 ID_FILE_MRU_FILE1,GRAYED
 		MENUITEM SEPARATOR
-		MENUITEM "E&xit",                       ID_APP_EXIT
+		MENUITEM "E&xit\tAlt+F4",                       ID_APP_EXIT
 	END
 	POPUP "&Edit"
 	BEGIN
@@ -178,8 +178,8 @@ BEGIN
 	END
 	POPUP "&View"
 	BEGIN
-		MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
-		MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+		MENUITEM "&Toolbar\tCtrl+T",                    ID_VIEW_TOOLBAR
+		MENUITEM "&Status Bar\tCtrl+U",                 ID_VIEW_STATUS_BAR
 	END
 	POPUP "&Window"
 	BEGIN
