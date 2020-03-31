@@ -213,6 +213,10 @@ BEGIN
 	"O",            ID_FILE_OPEN,           VIRTKEY,CONTROL
 	"S",            ID_FILE_SAVE,           VIRTKEY,CONTROL
 	"P",            ID_FILE_PRINT,          VIRTKEY,CONTROL
+	"R",            ID_FILE_PRINT_SETUP,        VIRTKEY,CONTROL
+	"G",            ID_FILE_PAGE_SETUP,        VIRTKEY,CONTROL
+	"W",            ID_FILE_PRINT_PREVIEW,        VIRTKEY,CONTROL
+	"E",            ID_FILE_SEND_MAIL,        VIRTKEY,CONTROL
 	"Z",            ID_EDIT_UNDO,           VIRTKEY,CONTROL
 	"X",            ID_EDIT_CUT,            VIRTKEY,CONTROL
 	"C",            ID_EDIT_COPY,           VIRTKEY,CONTROL
@@ -222,6 +226,8 @@ BEGIN
 	"F",            ID_EDIT_FIND,           VIRTKEY,CONTROL
 	VK_F3,          ID_EDIT_REPEAT,         VIRTKEY
 	"H",            ID_EDIT_REPLACE,        VIRTKEY,CONTROL
+	"U",            ID_VIEW_STATUS_BAR,        VIRTKEY,CONTROL
+	"T",            ID_VIEW_TOOLBAR,        VIRTKEY,CONTROL
 	VK_BACK,        ID_EDIT_UNDO,           VIRTKEY,ALT
 	VK_DELETE,      ID_EDIT_CUT,            VIRTKEY,SHIFT
 	VK_INSERT,      ID_EDIT_COPY,           VIRTKEY,CONTROL
