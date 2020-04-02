@@ -179,12 +179,14 @@ void CNotepadMTApp::OnPageDialog()
 	PageDialog.m_psd.rtMargin.right = GetProfileInt("Settings", "RightMargin", 1250);
 	PageDialog.m_psd.rtMargin.bottom = GetProfileInt("Settings", "BottomMargin", 1000);
 	// Bring up the dialog
-	PageDialog.DoModal();
-	// Save settings
-	WriteProfileInt("Settings", "TopMargin", PageDialog.m_psd.rtMargin.top);
-	WriteProfileInt("Settings", "LeftMargin", PageDialog.m_psd.rtMargin.left);
-	WriteProfileInt("Settings", "RightMargin", PageDialog.m_psd.rtMargin.right);
-	WriteProfileInt("Settings", "BottomMargin", PageDialog.m_psd.rtMargin.bottom);
+	if (PageDialog.DoModal() == IDOK)
+	{
+		// Save settings
+		WriteProfileInt("Settings", "TopMargin", PageDialog.m_psd.rtMargin.top);
+		WriteProfileInt("Settings", "LeftMargin", PageDialog.m_psd.rtMargin.left);
+		WriteProfileInt("Settings", "RightMargin", PageDialog.m_psd.rtMargin.right);
+		WriteProfileInt("Settings", "BottomMargin", PageDialog.m_psd.rtMargin.bottom);
+	}
 }
 
 /////////////////////////////////////////////////////////////////////////////
