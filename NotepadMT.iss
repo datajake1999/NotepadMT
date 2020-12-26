@@ -4,7 +4,6 @@ AppVerName=NotepadMT
 DefaultDirName={pf}\NotepadMT
 DefaultGroupName=NotepadMT
 AllowNoIcons=yes
-LicenseFile=LICENSE.TXT
 OutputBaseFilename=NotepadMTSetup
 
 [Tasks]
