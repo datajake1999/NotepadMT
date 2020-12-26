@@ -29,6 +29,11 @@ BEGIN_MESSAGE_MAP(CNotepadMTView, CEditView)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, CEditView::OnFilePrintPreview)
 	ON_COMMAND(ID_EDIT_CLEAR_ALL, OnClearDocument)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_CLEAR_ALL, OnUpdateClearDocument)
+	ON_CONTROL_REFLECT(EN_CHANGE, OnEditChange)
+	ON_COMMAND(ID_EDIT_UNDO, OnEditUndo)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_UNDO, OnUpdateEditUndo)
+	ON_COMMAND(ID_EDIT_REDO, OnEditRedo)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_REDO, OnUpdateEditRedo)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -104,6 +109,37 @@ void CNotepadMTView::OnUpdateClearDocument(CCmdUI* pCmdUI)
 	{
 		pCmdUI->Enable(FALSE);
 	}
+}
+
+BOOL CNotepadMTView::OnEditChange()
+{
+	CNotepadMTDoc* pDoc = GetDocument();
+	pDoc->CheckPoint();
+	return CEditView::OnEditChange();
+}
+
+void CNotepadMTView::OnEditUndo()
+{
+	CNotepadMTDoc* pDoc = GetDocument();
+	pDoc->Undo();
+}
+
+void CNotepadMTView::OnUpdateEditUndo(CCmdUI* pCmdUI)
+{
+	CNotepadMTDoc* pDoc = GetDocument();
+	pCmdUI->Enable(pDoc->CanUndo());
+}
+
+void CNotepadMTView::OnEditRedo()
+{
+	CNotepadMTDoc* pDoc = GetDocument();
+	pDoc->Redo();
+}
+
+void CNotepadMTView::OnUpdateEditRedo(CCmdUI* pCmdUI)
+{
+	CNotepadMTDoc* pDoc = GetDocument();
+	pCmdUI->Enable(pDoc->CanRedo());
 }
 
 /////////////////////////////////////////////////////////////////////////////

@@ -10,7 +10,7 @@
 #endif // _MSC_VER > 1000
 
 
-class CNotepadMTDoc : public CDocument
+class CNotepadMTDoc : public CDocument, public CUndo
 {
 protected: // create from serialization only
 	CNotepadMTDoc();
@@ -27,7 +27,9 @@ public:
 	//{{AFX_VIRTUAL(CNotepadMTDoc)
 	public:
 	virtual BOOL OnNewDocument();
+	virtual BOOL OnOpenDocument(LPCTSTR lpszPathName);
 	virtual void Serialize(CArchive& ar);
+	virtual void DeleteContents();
 	//}}AFX_VIRTUAL
 
 // Implementation

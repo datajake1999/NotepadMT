@@ -24,4 +24,6 @@
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.
 
+#include "undo.h"
+
 #endif // !defined(AFX_STDAFX_H__B1EBBA44_4889_4AC9_A257_FD65882A38B0__INCLUDED_)

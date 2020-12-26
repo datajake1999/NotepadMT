@@ -35,6 +35,11 @@ public:
 	virtual void OnEndPrinting(CDC* pDC, CPrintInfo* pInfo);
 	virtual void OnClearDocument();
 	virtual void OnUpdateClearDocument(CCmdUI* pCmdUI);
+	virtual BOOL OnEditChange();
+	virtual void OnEditUndo();
+	virtual void OnUpdateEditUndo(CCmdUI* pCmdUI);
+	virtual void OnEditRedo();
+	virtual void OnUpdateEditRedo(CCmdUI* pCmdUI);
 	//}}AFX_VIRTUAL
 
 // Implementation

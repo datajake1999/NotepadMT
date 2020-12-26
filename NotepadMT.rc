@@ -164,6 +164,7 @@ BEGIN
 	POPUP "&Edit"
 	BEGIN
 		MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+		MENUITEM "&Redo\tCtrl+Y",               ID_EDIT_REDO
 		MENUITEM SEPARATOR
 		MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
 		MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
@@ -218,6 +219,7 @@ BEGIN
 	"W",            ID_FILE_PRINT_PREVIEW,        VIRTKEY,CONTROL
 	"E",            ID_FILE_SEND_MAIL,        VIRTKEY,CONTROL
 	"Z",            ID_EDIT_UNDO,           VIRTKEY,CONTROL
+	"Y",            ID_EDIT_REDO,           VIRTKEY,CONTROL
 	"X",            ID_EDIT_CUT,            VIRTKEY,CONTROL
 	"C",            ID_EDIT_COPY,           VIRTKEY,CONTROL
 	"V",            ID_EDIT_PASTE,          VIRTKEY,CONTROL

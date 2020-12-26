@@ -47,6 +47,19 @@ BOOL CNotepadMTDoc::OnNewDocument()
 	// TODO: add reinitialization code here
 	// (SDI documents will reuse this document)
 
+	CheckPoint();
+	return TRUE;
+}
+
+BOOL CNotepadMTDoc::OnOpenDocument(LPCTSTR lpszPathName)
+{
+	if (!CDocument::OnOpenDocument(lpszPathName))
+		return FALSE;
+
+	// TODO: add reinitialization code here
+	// (SDI documents will reuse this document)
+
+	CheckPoint();
 	return TRUE;
 }
 
@@ -59,6 +72,10 @@ void CNotepadMTDoc::Serialize(CArchive& ar)
 {
 	// CEditView contains an edit control which handles all serialization
 	((CEditView*)m_viewList.GetHead())->SerializeRaw(ar);
+}
+
+void CNotepadMTDoc::DeleteContents()
+{
 }
 
 /////////////////////////////////////////////////////////////////////////////
