@@ -228,8 +228,8 @@ BEGIN
 	"F",            ID_EDIT_FIND,           VIRTKEY,CONTROL
 	VK_F3,          ID_EDIT_REPEAT,         VIRTKEY
 	"H",            ID_EDIT_REPLACE,        VIRTKEY,CONTROL
-	"U",            ID_VIEW_STATUS_BAR,        VIRTKEY,CONTROL
 	"T",            ID_VIEW_TOOLBAR,        VIRTKEY,CONTROL
+	"U",            ID_VIEW_STATUS_BAR,        VIRTKEY,CONTROL
 	VK_BACK,        ID_EDIT_UNDO,           VIRTKEY,ALT
 	VK_DELETE,      ID_EDIT_CUT,            VIRTKEY,SHIFT
 	VK_INSERT,      ID_EDIT_COPY,           VIRTKEY,CONTROL
