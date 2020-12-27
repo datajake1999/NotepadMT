@@ -174,18 +174,18 @@ void CNotepadMTApp::OnPageDialog()
 	// Initialize Page Setup Dialog
 	PageDialog.m_psd.Flags |= PSD_DISABLEPRINTER | PSD_DISABLEORIENTATION | PSD_DISABLEPAPER;
 	// Load settings
-	PageDialog.m_psd.rtMargin.top = GetProfileInt("Settings", "TopMargin", 1000);
-	PageDialog.m_psd.rtMargin.left = GetProfileInt("Settings", "LeftMargin", 1250);
-	PageDialog.m_psd.rtMargin.right = GetProfileInt("Settings", "RightMargin", 1250);
-	PageDialog.m_psd.rtMargin.bottom = GetProfileInt("Settings", "BottomMargin", 1000);
+	PageDialog.m_psd.rtMargin.top = GetProfileInt(_T("Settings"), _T("TopMargin"), 1000);
+	PageDialog.m_psd.rtMargin.left = GetProfileInt(_T("Settings"), _T("LeftMargin"), 1250);
+	PageDialog.m_psd.rtMargin.right = GetProfileInt(_T("Settings"), _T("RightMargin"), 1250);
+	PageDialog.m_psd.rtMargin.bottom = GetProfileInt(_T("Settings"), _T("BottomMargin"), 1000);
 	// Bring up the dialog
 	if (PageDialog.DoModal() == IDOK)
 	{
 		// Save settings
-		WriteProfileInt("Settings", "TopMargin", PageDialog.m_psd.rtMargin.top);
-		WriteProfileInt("Settings", "LeftMargin", PageDialog.m_psd.rtMargin.left);
-		WriteProfileInt("Settings", "RightMargin", PageDialog.m_psd.rtMargin.right);
-		WriteProfileInt("Settings", "BottomMargin", PageDialog.m_psd.rtMargin.bottom);
+		WriteProfileInt(_T("Settings"), _T("TopMargin"), PageDialog.m_psd.rtMargin.top);
+		WriteProfileInt(_T("Settings"), _T("LeftMargin"), PageDialog.m_psd.rtMargin.left);
+		WriteProfileInt(_T("Settings"), _T("RightMargin"), PageDialog.m_psd.rtMargin.right);
+		WriteProfileInt(_T("Settings"), _T("BottomMargin"), PageDialog.m_psd.rtMargin.bottom);
 	}
 }
 
