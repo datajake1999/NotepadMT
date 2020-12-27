@@ -34,6 +34,7 @@ BEGIN_MESSAGE_MAP(CNotepadMTView, CEditView)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_UNDO, OnUpdateEditUndo)
 	ON_COMMAND(ID_EDIT_REDO, OnEditRedo)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_REDO, OnUpdateEditRedo)
+	ON_COMMAND(ID_FORMAT_FONT, OnFormatFont)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -140,6 +141,25 @@ void CNotepadMTView::OnUpdateEditRedo(CCmdUI* pCmdUI)
 {
 	CNotepadMTDoc* pDoc = GetDocument();
 	pCmdUI->Enable(pDoc->CanRedo());
+}
+
+void CNotepadMTView::OnFormatFont()
+{
+	CFont *font = GetFont();
+	CFont *fontNew = new CFont;
+	LOGFONT lf;
+	if (font != NULL)
+	{
+		font->GetLogFont(&lf);
+	}
+	CFontDialog FontDialog(&lf);
+	if (FontDialog.DoModal() == IDOK)
+	{
+		if (fontNew->CreateFontIndirect(&lf))
+		{
+			SetFont(fontNew);
+		}
+	}
 }
 
 /////////////////////////////////////////////////////////////////////////////

@@ -40,6 +40,7 @@ public:
 	virtual void OnUpdateEditUndo(CCmdUI* pCmdUI);
 	virtual void OnEditRedo();
 	virtual void OnUpdateEditRedo(CCmdUI* pCmdUI);
+	virtual void OnFormatFont();
 	//}}AFX_VIRTUAL
 
 // Implementation

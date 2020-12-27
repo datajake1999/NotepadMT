@@ -177,6 +177,10 @@ BEGIN
         MENUITEM "F&ind Next\tF3",              ID_EDIT_REPEAT
         MENUITEM "R&eplace\tCtrl+H",            ID_EDIT_REPLACE
 	END
+	POPUP "&Format"
+	BEGIN
+		MENUITEM "&Font...\tCtrl+D",                  ID_FORMAT_FONT
+	END
 	POPUP "&View"
 	BEGIN
 		MENUITEM "&Toolbar\tCtrl+T",                    ID_VIEW_TOOLBAR
@@ -228,6 +232,7 @@ BEGIN
 	"F",            ID_EDIT_FIND,           VIRTKEY,CONTROL
 	VK_F3,          ID_EDIT_REPEAT,         VIRTKEY
 	"H",            ID_EDIT_REPLACE,        VIRTKEY,CONTROL
+	"D",            ID_FORMAT_FONT,        VIRTKEY,CONTROL
 	"T",            ID_VIEW_TOOLBAR,        VIRTKEY,CONTROL
 	"U",            ID_VIEW_STATUS_BAR,        VIRTKEY,CONTROL
 	VK_BACK,        ID_EDIT_UNDO,           VIRTKEY,ALT
@@ -402,6 +407,7 @@ BEGIN
 	ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
 	ID_EDIT_UNDO            "Undo the last action\nUndo"
 	ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+	ID_FORMAT_FONT,         "Select font for current selection\nFont"
 	ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
 	ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
 END
