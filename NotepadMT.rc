@@ -1,6 +1,7 @@
 //Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
+#include "TTSID.h"
 
 #define APSTUDIO_READONLY_SYMBOLS
 /////////////////////////////////////////////////////////////////////////////
@@ -181,6 +182,13 @@ BEGIN
 	BEGIN
 		MENUITEM "&Font...\tCtrl+D",                  ID_FORMAT_FONT
 	END
+	POPUP "&Speak"
+	BEGIN
+		MENUITEM "Speak &Document\tF5",                  ID_TTS_SPEAKDOC
+		MENUITEM "Speak &Selected Text\tCtrl+F5",                  ID_TTS_SPEAKSEL
+		MENUITEM "&Pause\tF6",                  ID_TTS_PAUSE
+		MENUITEM "&Stop\tF7",                  ID_TTS_STOP
+	END
 	POPUP "&View"
 	BEGIN
 		MENUITEM "&Toolbar\tCtrl+T",                    ID_VIEW_TOOLBAR
@@ -233,6 +241,10 @@ BEGIN
 	VK_F3,          ID_EDIT_REPEAT,         VIRTKEY
 	"H",            ID_EDIT_REPLACE,        VIRTKEY,CONTROL
 	"D",            ID_FORMAT_FONT,        VIRTKEY,CONTROL
+	VK_F5,          ID_TTS_SPEAKDOC,         VIRTKEY
+	VK_F5,          ID_TTS_SPEAKSEL,         VIRTKEY,CONTROL
+	VK_F6,          ID_TTS_PAUSE,         VIRTKEY
+	VK_F7,          ID_TTS_STOP,         VIRTKEY
 	"T",            ID_VIEW_TOOLBAR,        VIRTKEY,CONTROL
 	"U",            ID_VIEW_STATUS_BAR,        VIRTKEY,CONTROL
 	VK_BACK,        ID_EDIT_UNDO,           VIRTKEY,ALT

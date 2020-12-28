@@ -9,6 +9,8 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
+#include "CTTS.H"
+#include "TTSID.H"
 
 class CNotepadMTView : public CEditView
 {
@@ -19,6 +21,7 @@ protected: // create from serialization only
 // Attributes
 public:
 	CNotepadMTDoc* GetDocument();
+	CTTS TTS;
 
 // Operations
 public:
@@ -41,6 +44,10 @@ public:
 	virtual void OnEditRedo();
 	virtual void OnUpdateEditRedo(CCmdUI* pCmdUI);
 	virtual void OnFormatFont();
+	virtual void OnSpeakDocument();
+	virtual void OnSpeakSelected();
+	virtual void OnPauseSpeech();
+	virtual void OnStopSpeech();
 	//}}AFX_VIRTUAL
 
 // Implementation

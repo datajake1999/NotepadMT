@@ -1,0 +1,5 @@
+//TTS function IDs
+#define ID_TTS_SPEAKDOC 0xEB00
+#define ID_TTS_SPEAKSEL 0xEB01
+#define ID_TTS_PAUSE 0xEB02
+#define ID_TTS_STOP 0xEB03

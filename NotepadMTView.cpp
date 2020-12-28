@@ -35,6 +35,10 @@ BEGIN_MESSAGE_MAP(CNotepadMTView, CEditView)
 	ON_COMMAND(ID_EDIT_REDO, OnEditRedo)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_REDO, OnUpdateEditRedo)
 	ON_COMMAND(ID_FORMAT_FONT, OnFormatFont)
+	ON_COMMAND(ID_TTS_SPEAKDOC, OnSpeakDocument)
+	ON_COMMAND(ID_TTS_SPEAKSEL, OnSpeakSelected)
+	ON_COMMAND(ID_TTS_PAUSE, OnPauseSpeech)
+	ON_COMMAND(ID_TTS_STOP, OnStopSpeech)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -160,6 +164,36 @@ void CNotepadMTView::OnFormatFont()
 			SetFont(fontNew);
 		}
 	}
+}
+
+void CNotepadMTView::OnSpeakDocument()
+{
+	CString text;
+	GetWindowText(text);
+	int strsize = text.GetLength();
+	unsigned short *text2speak = new unsigned short[strsize];
+	MultiByteToWideChar(CP_UTF8, 0, text, strsize, text2speak, strsize);
+	TTS.speak(text2speak);
+}
+
+void CNotepadMTView::OnSpeakSelected()
+{
+	CString text;
+	GetSelectedText(text);
+	int strsize = text.GetLength();
+	unsigned short *text2speak = new unsigned short[strsize];
+	MultiByteToWideChar(CP_UTF8, 0, text, strsize, text2speak, strsize);
+	TTS.speak(text2speak);
+}
+
+void CNotepadMTView::OnPauseSpeech()
+{
+	TTS.pause();
+}
+
+void CNotepadMTView::OnStopSpeech()
+{
+	TTS.stop();
 }
 
 /////////////////////////////////////////////////////////////////////////////
