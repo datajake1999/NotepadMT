@@ -171,9 +171,9 @@ void CNotepadMTView::OnSpeakDocument()
 {
 	CString text;
 	GetWindowText(text);
-	int strsize = text.GetLength();
+	int strsize = MultiByteToWideChar(CP_UTF8, 0, text, -1, NULL, 0);
 	unsigned short *text2speak = new unsigned short[strsize];
-	MultiByteToWideChar(CP_UTF8, 0, text, strsize, text2speak, strsize);
+	MultiByteToWideChar(CP_UTF8, 0, text, -1, text2speak, strsize);
 	TTS.speak(text2speak);
 }
 
@@ -181,9 +181,9 @@ void CNotepadMTView::OnSpeakSelected()
 {
 	CString text;
 	GetSelectedText(text);
-	int strsize = text.GetLength();
+	int strsize = MultiByteToWideChar(CP_UTF8, 0, text, -1, NULL, 0);
 	unsigned short *text2speak = new unsigned short[strsize];
-	MultiByteToWideChar(CP_UTF8, 0, text, strsize, text2speak, strsize);
+	MultiByteToWideChar(CP_UTF8, 0, text, -1, text2speak, strsize);
 	TTS.speak(text2speak);
 }
 
@@ -205,14 +205,14 @@ void CNotepadMTView::OnCreateWAV()
 	if (fileDialog.DoModal() == IDOK)
 	{
 		CString pathName = fileDialog.GetPathName();
-		int strsize = pathName.GetLength();
+		int strsize = MultiByteToWideChar(CP_UTF8, 0, pathName, -1, NULL, 0);
 		unsigned short *filePath = new unsigned short[strsize];
-		MultiByteToWideChar(CP_UTF8, 0, pathName, strsize, filePath, strsize);
+		MultiByteToWideChar(CP_UTF8, 0, pathName, -1, filePath, strsize);
 		CString text;
 		GetWindowText(text);
-		strsize = text.GetLength();
+		strsize = MultiByteToWideChar(CP_UTF8, 0, text, -1, NULL, 0);
 		unsigned short *text2speak = new unsigned short[strsize];
-		MultiByteToWideChar(CP_UTF8, 0, text, strsize, text2speak, strsize);
+		MultiByteToWideChar(CP_UTF8, 0, text, -1, text2speak, strsize);
 		TTS.speakToWAV(text2speak, filePath);
 	}
 }
