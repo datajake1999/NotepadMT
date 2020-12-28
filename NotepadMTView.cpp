@@ -202,7 +202,7 @@ void CNotepadMTView::OnCreateWAV()
 {
 	CNotepadMTDoc* pDoc = GetDocument();
 	TCHAR szFilters[] = _T("WAV Files (*.WAV)|*.WAV|All Files (*.*)|*.*||");
-	CFileDialog fileDialog(FALSE, _T("WAV"), pDoc->GetTitle(), OFN_FILEMUSTEXIST | OFN_HIDEREADONLY, szFilters);
+	CFileDialog fileDialog(FALSE, _T("WAV"), pDoc->GetTitle(), OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT, szFilters);
 	if (fileDialog.DoModal() == IDOK)
 	{
 		CString pathName = fileDialog.GetPathName();
