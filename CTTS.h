@@ -15,6 +15,7 @@ public:
 	bool isSpeaking();
 	void speak(unsigned short *text);
 	void speakToWAV(unsigned short *text, unsigned short *filename);
+	void playWAV(unsigned short *filename);
 	void pause();
 	void stop();
 };

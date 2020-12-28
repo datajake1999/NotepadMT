@@ -88,6 +88,23 @@ void CTTS::speakToWAV(unsigned short *text, unsigned short *filename)
 	MessageBox(NULL, _T("WAV file created.\n"), _T("Information"), MB_OK | MB_ICONINFORMATION);
 }
 
+void CTTS::playWAV(unsigned short *filename)
+{
+	//bassed on code from TTSApp sample
+	ISpStream *pWavStream;
+	if (isSpeaking())
+	{
+		return;
+	}
+	// User helper function found in sphelper.h to open the wav file and
+	// get back an IStream pointer to pass to SpeakStream
+	hr = SPBindToFile(filename, SPFM_OPEN_READONLY, &pWavStream);
+	if (SUCCEEDED(hr))
+	{
+		hr = pVoice->SpeakStream(pWavStream, SPF_ASYNC, NULL);
+	}
+}
+
 void CTTS::pause()
 {
 	if( SUCCEEDED( hr ) )
