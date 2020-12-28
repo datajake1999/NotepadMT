@@ -137,6 +137,10 @@ void CTTS::stop()
 	}
 	if( SUCCEEDED( hr ) )
 	{
+		hr = pVoice->Resume();
+	}
+	if( SUCCEEDED( hr ) )
+	{
 		hr = pVoice->Speak(NULL, SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
 	}
 }
