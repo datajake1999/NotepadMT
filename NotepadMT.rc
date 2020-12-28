@@ -188,6 +188,7 @@ BEGIN
 		MENUITEM "Speak &Selected Text\tCtrl+F5",                  ID_TTS_SPEAKSEL
 		MENUITEM "&Pause\tF6",                  ID_TTS_PAUSE
 		MENUITEM "&Stop\tF7",                  ID_TTS_STOP
+		MENUITEM "Convert document to &WAV\tF8",                  ID_TTS_CREATEWAV
 	END
 	POPUP "&View"
 	BEGIN
@@ -245,6 +246,7 @@ BEGIN
 	VK_F5,          ID_TTS_SPEAKSEL,         VIRTKEY,CONTROL
 	VK_F6,          ID_TTS_PAUSE,         VIRTKEY
 	VK_F7,          ID_TTS_STOP,         VIRTKEY
+	VK_F8,          ID_TTS_CREATEWAV,         VIRTKEY
 	"T",            ID_VIEW_TOOLBAR,        VIRTKEY,CONTROL
 	"U",            ID_VIEW_STATUS_BAR,        VIRTKEY,CONTROL
 	VK_BACK,        ID_EDIT_UNDO,           VIRTKEY,ALT

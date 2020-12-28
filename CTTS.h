@@ -2,6 +2,7 @@
 #define CTTS_H
 
 #include <sapi.h>
+#include <sphelper.h>
 
 class CTTS
 {
@@ -13,6 +14,7 @@ public:
 	~CTTS();
 	bool isSpeaking();
 	void speak(unsigned short *text);
+	void speakToWAV(unsigned short *text, unsigned short *filename);
 	void pause();
 	void stop();
 };

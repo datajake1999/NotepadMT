@@ -39,6 +39,7 @@ BEGIN_MESSAGE_MAP(CNotepadMTView, CEditView)
 	ON_COMMAND(ID_TTS_SPEAKSEL, OnSpeakSelected)
 	ON_COMMAND(ID_TTS_PAUSE, OnPauseSpeech)
 	ON_COMMAND(ID_TTS_STOP, OnStopSpeech)
+	ON_COMMAND(ID_TTS_CREATEWAV, OnCreateWAV)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -194,6 +195,26 @@ void CNotepadMTView::OnPauseSpeech()
 void CNotepadMTView::OnStopSpeech()
 {
 	TTS.stop();
+}
+
+void CNotepadMTView::OnCreateWAV()
+{
+	CNotepadMTDoc* pDoc = GetDocument();
+	TCHAR szFilters[] = _T("WAV Files (*.WAV)|*.WAV|All Files (*.*)|*.*||");
+	CFileDialog fileDialog(FALSE, _T("WAV"), pDoc->GetTitle(), OFN_FILEMUSTEXIST | OFN_HIDEREADONLY, szFilters);
+	if (fileDialog.DoModal() == IDOK)
+	{
+		CString pathName = fileDialog.GetPathName();
+		int strsize = pathName.GetLength();
+		unsigned short *filePath = new unsigned short[strsize];
+		MultiByteToWideChar(CP_UTF8, 0, pathName, strsize, filePath, strsize);
+		CString text;
+		GetWindowText(text);
+		strsize = text.GetLength();
+		unsigned short *text2speak = new unsigned short[strsize];
+		MultiByteToWideChar(CP_UTF8, 0, text, strsize, text2speak, strsize);
+		TTS.speakToWAV(text2speak, filePath);
+	}
 }
 
 /////////////////////////////////////////////////////////////////////////////
