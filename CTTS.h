@@ -12,6 +12,7 @@ protected:
 public:
 	CTTS();
 	~CTTS();
+	bool isDone();
 	bool isSpeaking();
 	void speak(unsigned short *text);
 	void speakToWAV(unsigned short *text, unsigned short *filename);

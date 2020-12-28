@@ -15,6 +15,18 @@ CTTS::~CTTS()
 	::CoUninitialize();
 }
 
+bool CTTS::isDone()
+{
+	SPVOICESTATUS status;
+	if( SUCCEEDED( hr ) )
+	{
+		hr = pVoice->GetStatus(&status, NULL);
+		if (status.dwRunningState == SPRS_DONE)
+		return true;
+	}
+	return false;
+}
+
 bool CTTS::isSpeaking()
 {
 	SPVOICESTATUS status;
@@ -29,11 +41,12 @@ bool CTTS::isSpeaking()
 
 void CTTS::speak(unsigned short *text)
 {
+	if (!isDone())
+	{
+		return;
+	}
 	if( SUCCEEDED( hr ) )
 	{
-		if (isSpeaking())
-		return;
-		else
 		hr = pVoice->Speak(text, SPF_ASYNC, NULL);
 	}
 }
@@ -44,7 +57,7 @@ void CTTS::speakToWAV(unsigned short *text, unsigned short *filename)
 	ISpStream *pWavStream;
 	ISpStreamFormat *pOldStream;
 	CSpStreamFormat OriginalFmt;
-	if (isSpeaking())
+	if (!isDone())
 	{
 		return;
 	}
@@ -92,7 +105,7 @@ void CTTS::playWAV(unsigned short *filename)
 {
 	//bassed on code from TTSApp sample
 	ISpStream *pWavStream;
-	if (isSpeaking())
+	if (!isDone())
 	{
 		return;
 	}
@@ -118,6 +131,10 @@ void CTTS::pause()
 
 void CTTS::stop()
 {
+	if (isDone())
+	{
+		return;
+	}
 	if( SUCCEEDED( hr ) )
 	{
 		hr = pVoice->Speak(NULL, SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
