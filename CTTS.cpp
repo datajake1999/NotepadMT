@@ -47,7 +47,7 @@ void CTTS::speak(unsigned short *text)
 	}
 	if( SUCCEEDED( hr ) )
 	{
-		hr = pVoice->Speak(text, SPF_ASYNC, NULL);
+		hr = pVoice->Speak(text, SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
 	}
 }
 
@@ -85,7 +85,7 @@ void CTTS::speakToWAV(unsigned short *text, unsigned short *filename)
 	if (SUCCEEDED(hr))
 	{
 		// Do the Speak
-		hr = pVoice->Speak(text, SPF_ASYNC, NULL);
+		hr = pVoice->Speak(text, SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
 	}
 	// Wait until the speak is finished if saving to a wav file so that
 	// the smart pointer cpWavStream doesn't get released before its
@@ -114,7 +114,7 @@ void CTTS::playWAV(unsigned short *filename)
 	hr = SPBindToFile(filename, SPFM_OPEN_READONLY, &pWavStream);
 	if (SUCCEEDED(hr))
 	{
-		hr = pVoice->SpeakStream(pWavStream, SPF_ASYNC, NULL);
+		hr = pVoice->SpeakStream(pWavStream, SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
 	}
 }
 
