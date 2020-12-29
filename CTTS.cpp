@@ -120,6 +120,10 @@ void CTTS::playWAV(unsigned short *filename)
 
 void CTTS::pause()
 {
+	if (isDone())
+	{
+		return;
+	}
 	if( SUCCEEDED( hr ) )
 	{
 		if (isSpeaking())
