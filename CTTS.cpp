@@ -79,6 +79,8 @@ void CTTS::playWAV(unsigned short *filename)
 	// User helper function found in sphelper.h to open the wav file and
 	// get back an IStream pointer to pass to SpeakStream
 	SPBindToFile(filename, SPFM_OPEN_READONLY, &pWavStream);
+	// In case we are paused, call resume
+	pVoice->Resume();
 	// Speak stream
 	pVoice->SpeakStream(pWavStream, SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
 }
