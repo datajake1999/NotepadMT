@@ -5,7 +5,7 @@
 CTTS::CTTS()
 {
 	::CoInitialize(NULL);
-	hr = CoCreateInstance(CLSID_SpVoice, NULL, CLSCTX_ALL, IID_ISpVoice, (void **)&pVoice);
+	CoCreateInstance(CLSID_SpVoice, NULL, CLSCTX_ALL, IID_ISpVoice, (void **)&pVoice);
 }
 
 CTTS::~CTTS()
@@ -18,24 +18,22 @@ CTTS::~CTTS()
 bool CTTS::isDone()
 {
 	SPVOICESTATUS status;
-	if( SUCCEEDED( hr ) )
-	{
-		hr = pVoice->GetStatus(&status, NULL);
-		if (status.dwRunningState == SPRS_DONE)
-		return true;
-	}
+	// Get status
+	pVoice->GetStatus(&status, NULL);
+	if (status.dwRunningState == SPRS_DONE)
+	return true;
+	else
 	return false;
 }
 
 bool CTTS::isSpeaking()
 {
 	SPVOICESTATUS status;
-	if( SUCCEEDED( hr ) )
-	{
-		hr = pVoice->GetStatus(&status, NULL);
-		if (status.dwRunningState == SPRS_IS_SPEAKING)
-		return true;
-	}
+	// Get status
+	pVoice->GetStatus(&status, NULL);
+	if (status.dwRunningState == SPRS_IS_SPEAKING)
+	return true;
+	else
 	return false;
 }
 
@@ -45,15 +43,13 @@ void CTTS::speak(unsigned short *text)
 	{
 		return;
 	}
-	if( SUCCEEDED( hr ) )
-	{
-		hr = pVoice->Speak(text, SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
-	}
+	// Speak
+	pVoice->Speak(text, SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
 }
 
 void CTTS::speakToWAV(unsigned short *text, unsigned short *filename)
 {
-	//bassed on code from TTSApp sample
+	// Bassed on code from TTSApp sample
 	ISpStream *pWavStream;
 	ISpStreamFormat *pOldStream;
 	CSpStreamFormat OriginalFmt;
@@ -62,48 +58,29 @@ void CTTS::speakToWAV(unsigned short *text, unsigned short *filename)
 		return;
 	}
 	// Get the current output stream
-	hr = pVoice->GetOutputStream(&pOldStream);
-	if (hr == S_OK)
-	{
-		// Assign format of original stream
-		hr = OriginalFmt.AssignFormat(pOldStream);
-	}
-	else
-	{
-		hr = E_FAIL;
-	}
-	if (SUCCEEDED(hr))
-	{
-		// User SAPI helper function in sphelper.h to create a wav file
-		hr = SPBindToFile(filename, SPFM_CREATE_ALWAYS, &pWavStream, &OriginalFmt.FormatId(), OriginalFmt.WaveFormatExPtr());
-	}
-	if (SUCCEEDED(hr))
-	{
-		// Set the voice's output to the wav file instead of the speakers
-		hr = pVoice->SetOutput(pWavStream, TRUE);
-	}
-	if (SUCCEEDED(hr))
-	{
-		// Do the Speak
-		hr = pVoice->Speak(text, SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
-	}
+	pVoice->GetOutputStream(&pOldStream);
+	// Assign format of original stream
+	OriginalFmt.AssignFormat(pOldStream);
+	// User SAPI helper function in sphelper.h to create a wav file
+	SPBindToFile(filename, SPFM_CREATE_ALWAYS, &pWavStream, &OriginalFmt.FormatId(), OriginalFmt.WaveFormatExPtr());
+	// Set the voice's output to the wav file instead of the speakers
+	pVoice->SetOutput(pWavStream, TRUE);
+	// Do the Speak
+	pVoice->Speak(text, SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
 	// Wait until the speak is finished if saving to a wav file so that
-	// the smart pointer cpWavStream doesn't get released before its
+	// the smart pointer pWavStream doesn't get released before its
 	// finished writing to the wav.
 	pVoice->WaitUntilDone(INFINITE);
-	if (SUCCEEDED(hr))
-	{
-		// close the stream
-		hr = pWavStream->Close();
-	}
+	pWavStream->Release();
 	// Reset output
 	pVoice->SetOutput(pOldStream, FALSE);
+	// Let the user know that the file has been created
 	MessageBox(NULL, _T("WAV file created.\n"), _T("Information"), MB_OK | MB_ICONINFORMATION);
 }
 
 void CTTS::playWAV(unsigned short *filename)
 {
-	//bassed on code from TTSApp sample
+	// Bassed on code from TTSApp sample
 	ISpStream *pWavStream;
 	if (!isDone())
 	{
@@ -111,11 +88,9 @@ void CTTS::playWAV(unsigned short *filename)
 	}
 	// User helper function found in sphelper.h to open the wav file and
 	// get back an IStream pointer to pass to SpeakStream
-	hr = SPBindToFile(filename, SPFM_OPEN_READONLY, &pWavStream);
-	if (SUCCEEDED(hr))
-	{
-		hr = pVoice->SpeakStream(pWavStream, SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
-	}
+	SPBindToFile(filename, SPFM_OPEN_READONLY, &pWavStream);
+	// Speak stream
+	pVoice->SpeakStream(pWavStream, SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
 }
 
 void CTTS::pause()
@@ -124,13 +99,12 @@ void CTTS::pause()
 	{
 		return;
 	}
-	if( SUCCEEDED( hr ) )
-	{
-		if (isSpeaking())
-		hr = pVoice->Pause();
-		else
-		hr = pVoice->Resume();
-	}
+	// If we are speaking, call pause
+	// If we are not speaking, call resume
+	if (isSpeaking())
+	pVoice->Pause();
+	else
+	pVoice->Resume();
 }
 
 void CTTS::stop()
@@ -139,12 +113,8 @@ void CTTS::stop()
 	{
 		return;
 	}
-	if( SUCCEEDED( hr ) )
-	{
-		hr = pVoice->Resume();
-	}
-	if( SUCCEEDED( hr ) )
-	{
-		hr = pVoice->Speak(NULL, SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
-	}
+	// In case we are paused, call resume
+	pVoice->Resume();
+	// Speak a null string
+	pVoice->Speak(NULL, SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
 }

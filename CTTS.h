@@ -7,7 +7,6 @@
 class CTTS
 {
 protected:
-	HRESULT hr;
 	ISpVoice * pVoice;
 public:
 	CTTS();
