@@ -39,10 +39,6 @@ bool CTTS::isSpeaking()
 
 void CTTS::speak(unsigned short *text)
 {
-	if (!isDone())
-	{
-		return;
-	}
 	// Speak
 	pVoice->Speak(text, SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
 }
@@ -53,10 +49,6 @@ void CTTS::speakToWAV(unsigned short *text, unsigned short *filename)
 	ISpStream *pWavStream;
 	ISpStreamFormat *pOldStream;
 	CSpStreamFormat OriginalFmt;
-	if (!isDone())
-	{
-		return;
-	}
 	// Get the current output stream
 	pVoice->GetOutputStream(&pOldStream);
 	// Assign format of original stream
@@ -82,10 +74,6 @@ void CTTS::playWAV(unsigned short *filename)
 {
 	// Bassed on code from TTSApp sample
 	ISpStream *pWavStream;
-	if (!isDone())
-	{
-		return;
-	}
 	// User helper function found in sphelper.h to open the wav file and
 	// get back an IStream pointer to pass to SpeakStream
 	SPBindToFile(filename, SPFM_OPEN_READONLY, &pWavStream);
@@ -95,10 +83,6 @@ void CTTS::playWAV(unsigned short *filename)
 
 void CTTS::pause()
 {
-	if (isDone())
-	{
-		return;
-	}
 	// If we are speaking, call pause
 	// If we are not speaking, call resume
 	if (isSpeaking())
@@ -109,10 +93,6 @@ void CTTS::pause()
 
 void CTTS::stop()
 {
-	if (isDone())
-	{
-		return;
-	}
 	// In case we are paused, call resume
 	pVoice->Resume();
 	// Speak a null string
