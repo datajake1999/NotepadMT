@@ -39,6 +39,8 @@ bool CTTS::isSpeaking()
 
 void CTTS::speak(unsigned short *text)
 {
+	// In case we are paused, call resume
+	pVoice->Resume();
 	// Speak
 	pVoice->Speak(text, SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
 }
@@ -58,7 +60,7 @@ void CTTS::speakToWAV(unsigned short *text, unsigned short *filename)
 	// Set the voice's output to the wav file instead of the speakers
 	pVoice->SetOutput(pWavStream, TRUE);
 	// Do the Speak
-	pVoice->Speak(text, SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
+	speak(text);
 	// Wait until the speak is finished if saving to a wav file so that
 	// the smart pointer pWavStream doesn't get released before its
 	// finished writing to the wav.
@@ -93,8 +95,6 @@ void CTTS::pause()
 
 void CTTS::stop()
 {
-	// In case we are paused, call resume
-	pVoice->Resume();
 	// Speak a null string
-	pVoice->Speak(NULL, SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
+	speak(NULL);
 }
