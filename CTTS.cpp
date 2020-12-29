@@ -66,7 +66,12 @@ void CTTS::speakToWAV(unsigned short *text, unsigned short *filename)
 	// Assign format of original stream
 	OriginalFmt.AssignFormat(pOldStream);
 	// User SAPI helper function in sphelper.h to create a wav file
-	SPBindToFile(filename, SPFM_CREATE_ALWAYS, &pWavStream, &OriginalFmt.FormatId(), OriginalFmt.WaveFormatExPtr());
+	if (FAILED(SPBindToFile(filename, SPFM_CREATE_ALWAYS, &pWavStream, &OriginalFmt.FormatId(), OriginalFmt.WaveFormatExPtr())))
+	{
+		// Display an error if the file couldn't be created
+		MessageBox(NULL, _T("WAV file couldn't be created.\n"), _T("Error"), MB_OK | MB_ICONERROR);
+		return;
+	}
 	// Set the voice's output to the wav file instead of the speakers
 	pVoice->SetOutput(pWavStream, TRUE);
 	// Do the Speak
