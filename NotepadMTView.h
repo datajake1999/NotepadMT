@@ -50,6 +50,7 @@ public:
 	virtual void OnStopSpeech();
 	virtual void OnCreateWAV();
 	virtual void OnPlayWAV();
+	virtual void OnResetSpeech();
 	//}}AFX_VIRTUAL
 
 // Implementation

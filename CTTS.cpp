@@ -15,6 +15,16 @@ CTTS::~CTTS()
 	::CoUninitialize();
 }
 
+void CTTS::reset()
+{
+	pVoice->Release();
+	pVoice = NULL;
+	::CoUninitialize();
+	::CoInitialize(NULL);
+	CoCreateInstance(CLSID_SpVoice, NULL, CLSCTX_ALL, IID_ISpVoice, (void **)&pVoice);
+	speak(L"SAPI Reinitialized.");
+}
+
 bool CTTS::isDone()
 {
 	SPVOICESTATUS status;

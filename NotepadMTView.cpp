@@ -41,6 +41,7 @@ BEGIN_MESSAGE_MAP(CNotepadMTView, CEditView)
 	ON_COMMAND(ID_TTS_STOP, OnStopSpeech)
 	ON_COMMAND(ID_TTS_CREATEWAV, OnCreateWAV)
 	ON_COMMAND(ID_TTS_PLAYWAV, OnPlayWAV)
+	ON_COMMAND(ID_TTS_RESET, OnResetSpeech)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -230,6 +231,11 @@ void CNotepadMTView::OnPlayWAV()
 		MultiByteToWideChar(CP_UTF8, 0, pathName, -1, filePath, strsize);
 		TTS.playWAV(filePath);
 	}
+}
+
+void CNotepadMTView::OnResetSpeech()
+{
+	TTS.reset();
 }
 
 /////////////////////////////////////////////////////////////////////////////

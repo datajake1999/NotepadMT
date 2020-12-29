@@ -11,6 +11,7 @@ protected:
 public:
 	CTTS();
 	~CTTS();
+	void reset();
 	bool isDone();
 	bool isSpeaking();
 	void speak(unsigned short *text);
