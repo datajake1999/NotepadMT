@@ -58,7 +58,6 @@ void CTTS::speak(unsigned short *text)
 void CTTS::speakToWAV(unsigned short *text, unsigned short *filename)
 {
 	// Bassed on code from TTSApp sample
-	ISpStream *pWavStream;
 	ISpStreamFormat *pOldStream;
 	CSpStreamFormat OriginalFmt;
 	// Get the current output stream
@@ -90,7 +89,6 @@ void CTTS::speakToWAV(unsigned short *text, unsigned short *filename)
 void CTTS::playWAV(unsigned short *filename)
 {
 	// Bassed on code from TTSApp sample
-	ISpStream *pWavStream;
 	// User helper function found in sphelper.h to open the wav file and
 	// get back an IStream pointer to pass to SpeakStream
 	SPBindToFile(filename, SPFM_OPEN_READONLY, &pWavStream);

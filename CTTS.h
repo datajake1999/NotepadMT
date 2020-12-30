@@ -8,6 +8,7 @@ class CTTS
 {
 protected:
 	ISpVoice * pVoice;
+	ISpStream * pWavStream;
 public:
 	CTTS();
 	~CTTS();
