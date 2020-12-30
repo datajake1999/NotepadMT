@@ -79,7 +79,7 @@ void CTTS::speakToWAV(unsigned short *text, unsigned short *filename)
 	// the smart pointer pWavStream doesn't get released before its
 	// finished writing to the wav.
 	pVoice->WaitUntilDone(INFINITE);
-	pWavStream->Release();
+	pWavStream->Close();
 	// Reset output
 	pVoice->SetOutput(pOldStream, FALSE);
 	// Let the user know that the file has been created
