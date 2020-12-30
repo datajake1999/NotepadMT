@@ -10,6 +10,8 @@ protected:
 	ISpVoice * pVoice;
 	ISpStream * pWavStream;
 	bool WAVOpen;
+	void startup();
+	void shutdown();
 	void closeWAV();
 public:
 	CTTS();

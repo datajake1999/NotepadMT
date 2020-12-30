@@ -4,13 +4,23 @@
 
 CTTS::CTTS()
 {
+	startup();
+}
+
+CTTS::~CTTS()
+{
+	shutdown();
+}
+
+void CTTS::startup()
+{
 	// Startup COM
 	::CoInitialize(NULL);
 	// Open SAPI
 	CoCreateInstance(CLSID_SpVoice, NULL, CLSCTX_ALL, IID_ISpVoice, (void **)&pVoice);
 }
 
-CTTS::~CTTS()
+void CTTS::shutdown()
 {
 	// If a WAV file is open, close it
 	closeWAV();
@@ -23,17 +33,9 @@ CTTS::~CTTS()
 
 void CTTS::reset()
 {
-	// If a WAV file is open, close it
-	closeWAV();
-	// Close SAPI
-	pVoice->Release();
-	pVoice = NULL;
-	// Shutdown COM
-	::CoUninitialize();
-	// Startup COM
-	::CoInitialize(NULL);
-	// Open SAPI
-	CoCreateInstance(CLSID_SpVoice, NULL, CLSCTX_ALL, IID_ISpVoice, (void **)&pVoice);
+	// Reinitialize SAPI
+	shutdown();
+	startup();
 	// Speak a message to inform the user that SAPI has been reinitialized
 	speak(L"SAPI Reinitialized.");
 }
