@@ -9,6 +9,8 @@ class CTTS
 protected:
 	ISpVoice * pVoice;
 	ISpStream * pWavStream;
+	bool WAVOpen;
+	void closeWAV();
 public:
 	CTTS();
 	~CTTS();

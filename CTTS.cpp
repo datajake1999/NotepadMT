@@ -12,6 +12,8 @@ CTTS::CTTS()
 
 CTTS::~CTTS()
 {
+	// If a WAV file is open, close it
+	closeWAV();
 	// Close SAPI
 	pVoice->Release();
 	pVoice = NULL;
@@ -21,6 +23,8 @@ CTTS::~CTTS()
 
 void CTTS::reset()
 {
+	// If a WAV file is open, close it
+	closeWAV();
 	// Close SAPI
 	pVoice->Release();
 	pVoice = NULL;
@@ -69,6 +73,8 @@ void CTTS::speakToWAV(unsigned short *text, unsigned short *filename)
 	// Bassed on code from TTSApp sample
 	ISpStreamFormat *pOldStream;
 	CSpStreamFormat OriginalFmt;
+	// If a WAV file is open, close it
+	closeWAV();
 	// Get the current output stream
 	pVoice->GetOutputStream(&pOldStream);
 	// Assign format of original stream
@@ -98,13 +104,29 @@ void CTTS::speakToWAV(unsigned short *text, unsigned short *filename)
 void CTTS::playWAV(unsigned short *filename)
 {
 	// Bassed on code from TTSApp sample
+	// If a WAV file is open, close it
+	closeWAV();
 	// User helper function found in sphelper.h to open the wav file and
 	// get back an IStream pointer to pass to SpeakStream
-	SPBindToFile(filename, SPFM_OPEN_READONLY, &pWavStream);
+	if (SUCCEEDED(SPBindToFile(filename, SPFM_OPEN_READONLY, &pWavStream)))
+	{
+		// If we successfully opened the file, set WAVOpen to true
+		WAVOpen = true;
+	}
 	// In case we are paused, call resume
 	pVoice->Resume();
 	// Speak stream
 	pVoice->SpeakStream(pWavStream, SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
+}
+
+void CTTS::closeWAV()
+{
+	if (WAVOpen == true)
+	{
+		// If a WAV file is open, close the stream and set WAVOpen to false
+		pWavStream->Close();
+		WAVOpen = false;
+	}
 }
 
 void CTTS::pause()
