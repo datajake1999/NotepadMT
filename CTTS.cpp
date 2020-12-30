@@ -4,24 +4,33 @@
 
 CTTS::CTTS()
 {
+	// Startup COM
 	::CoInitialize(NULL);
+	// Open SAPI
 	CoCreateInstance(CLSID_SpVoice, NULL, CLSCTX_ALL, IID_ISpVoice, (void **)&pVoice);
 }
 
 CTTS::~CTTS()
 {
+	// Close SAPI
 	pVoice->Release();
 	pVoice = NULL;
+	// Shutdown COM
 	::CoUninitialize();
 }
 
 void CTTS::reset()
 {
+	// Close SAPI
 	pVoice->Release();
 	pVoice = NULL;
+	// Shutdown COM
 	::CoUninitialize();
+	// Startup COM
 	::CoInitialize(NULL);
+	// Open SAPI
 	CoCreateInstance(CLSID_SpVoice, NULL, CLSCTX_ALL, IID_ISpVoice, (void **)&pVoice);
+	// Speak a message to inform the user that SAPI has been reinitialized
 	speak(L"SAPI Reinitialized.");
 }
 
