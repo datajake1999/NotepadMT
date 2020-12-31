@@ -42,6 +42,10 @@ BEGIN_MESSAGE_MAP(CNotepadMTView, CEditView)
 	ON_COMMAND(ID_TTS_CREATEWAV, OnCreateWAV)
 	ON_COMMAND(ID_TTS_PLAYWAV, OnPlayWAV)
 	ON_COMMAND(ID_TTS_RESET, OnResetSpeech)
+	ON_COMMAND(ID_TTS_RATEUP, OnSpeakFaster)
+	ON_COMMAND(ID_TTS_RATEDOWN, OnSpeakSlower)
+	ON_COMMAND(ID_TTS_VOLUMEUP, OnSpeakLouder)
+	ON_COMMAND(ID_TTS_VOLUMEDOWN, OnSpeakQuieter)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -236,6 +240,26 @@ void CNotepadMTView::OnPlayWAV()
 void CNotepadMTView::OnResetSpeech()
 {
 	TTS.reset();
+}
+
+void CNotepadMTView::OnSpeakFaster()
+{
+	TTS.rateUp();
+}
+
+void CNotepadMTView::OnSpeakSlower()
+{
+	TTS.rateDown();
+}
+
+void CNotepadMTView::OnSpeakLouder()
+{
+	TTS.volumeUp();
+}
+
+void CNotepadMTView::OnSpeakQuieter()
+{
+	TTS.volumeDown();
 }
 
 /////////////////////////////////////////////////////////////////////////////

@@ -9,6 +9,8 @@ class CTTS
 protected:
 	ISpVoice * pVoice;
 	ISpStream * pWavStream;
+	signed long curRate;
+	unsigned short curVolume;
 	bool WAVOpen;
 	void startup();
 	void shutdown();
@@ -24,6 +26,10 @@ public:
 	void playWAV(unsigned short *filename);
 	void pause();
 	void stop();
+	void rateUp();
+	void rateDown();
+	void volumeUp();
+	void volumeDown();
 };
 
 #endif // !defined(CTTS_H)

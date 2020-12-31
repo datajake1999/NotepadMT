@@ -19,6 +19,9 @@ void CTTS::startup()
 	// Open SAPI
 	pVoice = NULL;
 	CoCreateInstance(CLSID_SpVoice, NULL, CLSCTX_ALL, IID_ISpVoice, (void **)&pVoice);
+	// Set rate and volume
+	pVoice->GetRate(&curRate);
+	pVoice->GetVolume(&curVolume);
 }
 
 void CTTS::shutdown()
@@ -146,4 +149,44 @@ void CTTS::stop()
 {
 	// Speak a null string
 	speak(NULL);
+}
+
+void CTTS::rateUp()
+{
+	// Increment curRate
+	curRate++;
+	// Set the new rate
+	pVoice->SetRate(curRate);
+	// Inform the user that the rate is faster
+	speak(L"Faster.");
+}
+
+void CTTS::rateDown()
+{
+	// Decrement curRate
+	curRate--;
+	// Set the new rate
+	pVoice->SetRate(curRate);
+	// Inform the user that the rate is slower
+	speak(L"Slower.");
+}
+
+void CTTS::volumeUp()
+{
+	// Increment curVolume
+	curVolume++;
+	// Set the new volume
+	pVoice->SetVolume(curVolume);
+	// Inform the user that the volume is louder
+	speak(L"Louder.");
+}
+
+void CTTS::volumeDown()
+{
+	// Decrement curVolume
+	curVolume--;
+	// Set the new volume
+	pVoice->SetVolume(curVolume);
+	// Inform the user that the volume is quieter
+	speak(L"Quieter.");
 }

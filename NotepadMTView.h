@@ -51,6 +51,10 @@ public:
 	virtual void OnCreateWAV();
 	virtual void OnPlayWAV();
 	virtual void OnResetSpeech();
+	virtual void OnSpeakFaster();
+	virtual void OnSpeakSlower();
+	virtual void OnSpeakLouder();
+	virtual void OnSpeakQuieter();
 	//}}AFX_VIRTUAL
 
 // Implementation
