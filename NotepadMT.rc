@@ -434,6 +434,14 @@ BEGIN
 	ID_FORMAT_FONT,         "Select font for current selection\nFont"
 	ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
 	ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+	ID_TTS_SPEAKDOC "Speak entire document\nSpeak Document"
+	ID_TTS_SPEAKSEL "Speak selected text\nSpeak Selected"
+	ID_TTS_PAUSE "Pause or resume speech\nPause/Resume"
+	ID_TTS_STOP "Stop speech\nStop"
+	ID_TTS_CREATEWAV "Convert document to a WAV file\nCreate WAV"
+	ID_TTS_PLAYWAV "Play a WAV file through SAPI\nPlay WAV"
+	ID_TTS_RESET "Reinitialize SAPI\nReset"
+	ID_TTS_XML "Enable or disable processing of SAPI XML tags\nEnable/Disable XML"
 END
 
 STRINGTABLE DISCARDABLE 
