@@ -17,6 +17,7 @@ void CTTS::startup()
 	// Startup COM
 	::CoInitialize(NULL);
 	// Open SAPI
+	pVoice = NULL;
 	CoCreateInstance(CLSID_SpVoice, NULL, CLSCTX_ALL, IID_ISpVoice, (void **)&pVoice);
 }
 
