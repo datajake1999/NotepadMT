@@ -191,7 +191,7 @@ BEGIN
 		MENUITEM "Convert document to &WAV...\tF8",                  ID_TTS_CREATEWAV
 		MENUITEM "P&lay WAV...\tCTRL+F8",                  ID_TTS_PLAYWAV
 		MENUITEM "&Reinitialize SAPI\tF9",                  ID_TTS_RESET
-		MENUITEM "Enable &XML tags\tF4",                  ID_TTS_XML
+		MENUITEM "Enable &XML tag processing\tF4",                  ID_TTS_XMLPROC
 	END
 	POPUP "&View"
 	BEGIN
@@ -252,7 +252,7 @@ BEGIN
 	VK_F8,          ID_TTS_CREATEWAV,         VIRTKEY
 	VK_F8,          ID_TTS_PLAYWAV,         VIRTKEY,CONTROL
 	VK_F9,          ID_TTS_RESET,         VIRTKEY
-	VK_F4,          ID_TTS_XML,         VIRTKEY
+	VK_F4,          ID_TTS_XMLPROC,         VIRTKEY
 	VK_PRIOR,          ID_TTS_RATEUP,         VIRTKEY,CONTROL,ALT
 	VK_NEXT,          ID_TTS_RATEDOWN,         VIRTKEY,CONTROL,ALT
 	VK_UP,          ID_TTS_VOLUMEUP,         VIRTKEY,CONTROL,ALT
@@ -441,7 +441,7 @@ BEGIN
 	ID_TTS_CREATEWAV "Convert document to a WAV file\nCreate WAV"
 	ID_TTS_PLAYWAV "Play a WAV file through SAPI\nPlay WAV"
 	ID_TTS_RESET "Reinitialize SAPI\nReset"
-	ID_TTS_XML "Enable or disable processing of SAPI XML tags\nEnable/Disable XML"
+	ID_TTS_XMLPROC "Enable or disable processing of SAPI XML tags\nEnable/Disable XML Processing"
 END
 
 STRINGTABLE DISCARDABLE 

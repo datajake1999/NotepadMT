@@ -55,8 +55,8 @@ public:
 	virtual void OnSpeakSlower();
 	virtual void OnSpeakLouder();
 	virtual void OnSpeakQuieter();
-	virtual void OnXML();
-	virtual void OnUpdateXML(CCmdUI* pCmdUI);
+	virtual void OnXMLProcessing();
+	virtual void OnUpdateXMLProcessing(CCmdUI* pCmdUI);
 	//}}AFX_VIRTUAL
 
 // Implementation

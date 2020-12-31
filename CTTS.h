@@ -12,7 +12,7 @@ protected:
 	signed long curRate;
 	unsigned short curVolume;
 	bool WAVOpen;
-	bool XML;
+	bool XMLProcessing;
 	void startup();
 	void shutdown();
 	void closeWAV();
@@ -31,8 +31,8 @@ public:
 	void rateDown();
 	void volumeUp();
 	void volumeDown();
-	void setXML(bool value);
-	bool getXML();
+	void setXMLProcessing(bool value);
+	bool getXMLProcessing();
 };
 
 #endif // !defined(CTTS_H)
