@@ -37,7 +37,7 @@ BEGIN_MESSAGE_MAP(CNotepadMTView, CEditView)
 	ON_COMMAND(ID_FORMAT_FONT, OnFormatFont)
 	ON_COMMAND(ID_TTS_SPEAKDOC, OnSpeakDocument)
 	ON_COMMAND(ID_TTS_SPEAKSEL, OnSpeakSelected)
-	ON_COMMAND(ID_TTS_PAUSE, OnPauseSpeech)
+	ON_COMMAND(ID_TTS_PAUSE, OnPauseResume)
 	ON_COMMAND(ID_TTS_STOP, OnStopSpeech)
 	ON_COMMAND(ID_TTS_CREATEWAV, OnCreateWAV)
 	ON_COMMAND(ID_TTS_PLAYWAV, OnPlayWAV)
@@ -195,9 +195,9 @@ void CNotepadMTView::OnSpeakSelected()
 	TTS.speak(text2speak);
 }
 
-void CNotepadMTView::OnPauseSpeech()
+void CNotepadMTView::OnPauseResume()
 {
-	TTS.pause();
+	TTS.pauseResume();
 }
 
 void CNotepadMTView::OnStopSpeech()

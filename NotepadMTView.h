@@ -46,7 +46,7 @@ public:
 	virtual void OnFormatFont();
 	virtual void OnSpeakDocument();
 	virtual void OnSpeakSelected();
-	virtual void OnPauseSpeech();
+	virtual void OnPauseResume();
 	virtual void OnStopSpeech();
 	virtual void OnCreateWAV();
 	virtual void OnPlayWAV();

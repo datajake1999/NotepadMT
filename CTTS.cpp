@@ -140,7 +140,7 @@ void CTTS::closeWAV()
 	}
 }
 
-void CTTS::pause()
+void CTTS::pauseResume()
 {
 	// If we are speaking, call pause
 	// If we are not speaking, call resume

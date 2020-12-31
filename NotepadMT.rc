@@ -186,7 +186,7 @@ BEGIN
 	BEGIN
 		MENUITEM "Speak &Document\tF5",                  ID_TTS_SPEAKDOC
 		MENUITEM "Speak &Selected Text\tCtrl+F5",                  ID_TTS_SPEAKSEL
-		MENUITEM "&Pause\tF6",                  ID_TTS_PAUSE
+		MENUITEM "&Pause/Resume\tF6",                  ID_TTS_PAUSE
 		MENUITEM "S&top\tF7",                  ID_TTS_STOP
 		MENUITEM "Convert document to &WAV...\tF8",                  ID_TTS_CREATEWAV
 		MENUITEM "P&lay WAV...\tCTRL+F8",                  ID_TTS_PLAYWAV
