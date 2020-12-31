@@ -46,6 +46,8 @@ BEGIN_MESSAGE_MAP(CNotepadMTView, CEditView)
 	ON_COMMAND(ID_TTS_RATEDOWN, OnSpeakSlower)
 	ON_COMMAND(ID_TTS_VOLUMEUP, OnSpeakLouder)
 	ON_COMMAND(ID_TTS_VOLUMEDOWN, OnSpeakQuieter)
+	ON_COMMAND(ID_TTS_XML, OnXML)
+	ON_UPDATE_COMMAND_UI(ID_TTS_XML, OnUpdateXML)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -260,6 +262,21 @@ void CNotepadMTView::OnSpeakLouder()
 void CNotepadMTView::OnSpeakQuieter()
 {
 	TTS.volumeDown();
+}
+
+void CNotepadMTView::OnXML()
+{
+	if (TTS.getXML() == true)
+	{
+		TTS.setXML(false);
+		return;
+	}
+	TTS.setXML(true);
+}
+
+void CNotepadMTView::OnUpdateXML(CCmdUI* pCmdUI)
+{
+	pCmdUI->SetCheck(TTS.getXML());
 }
 
 /////////////////////////////////////////////////////////////////////////////

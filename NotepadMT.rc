@@ -191,6 +191,7 @@ BEGIN
 		MENUITEM "Convert document to &WAV...\tF8",                  ID_TTS_CREATEWAV
 		MENUITEM "P&lay WAV...\tCTRL+F8",                  ID_TTS_PLAYWAV
 		MENUITEM "&Reinitialize SAPI\tF9",                  ID_TTS_RESET
+		MENUITEM "Enable &XML tags\tF4",                  ID_TTS_XML
 	END
 	POPUP "&View"
 	BEGIN
@@ -251,6 +252,7 @@ BEGIN
 	VK_F8,          ID_TTS_CREATEWAV,         VIRTKEY
 	VK_F8,          ID_TTS_PLAYWAV,         VIRTKEY,CONTROL
 	VK_F9,          ID_TTS_RESET,         VIRTKEY
+	VK_F4,          ID_TTS_XML,         VIRTKEY
 	VK_PRIOR,          ID_TTS_RATEUP,         VIRTKEY,CONTROL,ALT
 	VK_NEXT,          ID_TTS_RATEDOWN,         VIRTKEY,CONTROL,ALT
 	VK_UP,          ID_TTS_VOLUMEUP,         VIRTKEY,CONTROL,ALT

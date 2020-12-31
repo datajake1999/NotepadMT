@@ -22,6 +22,8 @@ void CTTS::startup()
 	// Set rate and volume
 	pVoice->GetRate(&curRate);
 	pVoice->GetVolume(&curVolume);
+	// Enable XML processing
+	XML = true;
 }
 
 void CTTS::shutdown()
@@ -71,7 +73,10 @@ void CTTS::speak(unsigned short *text)
 	// In case we are paused, call resume
 	pVoice->Resume();
 	// Speak
-	pVoice->Speak(text, SPF_ASYNC | SPF_PURGEBEFORESPEAK, NULL);
+	if (XML == true)
+	pVoice->Speak(text, SPF_ASYNC | SPF_PURGEBEFORESPEAK | SPF_IS_XML, NULL);
+	else
+	pVoice->Speak(text, SPF_ASYNC | SPF_PURGEBEFORESPEAK | SPF_IS_NOT_XML, NULL);
 }
 
 void CTTS::speakToWAV(unsigned short *text, unsigned short *filename)
@@ -189,4 +194,14 @@ void CTTS::volumeDown()
 	pVoice->SetVolume(curVolume);
 	// Inform the user that the volume is quieter
 	speak(L"Quieter.");
+}
+
+void CTTS::setXML(bool value)
+{
+	XML = value;
+}
+
+bool CTTS::getXML()
+{
+	return XML;
 }
