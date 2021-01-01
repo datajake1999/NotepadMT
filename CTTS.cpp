@@ -205,3 +205,15 @@ bool CTTS::getXMLProcessing()
 {
 	return XMLProcessing;
 }
+
+void CTTS::rewind(signed long numItems)
+{
+	// Move back by the specified number of items
+	pVoice->Skip(L"Sentence", numItems*-1, NULL);
+}
+
+void CTTS::fastForward(signed long numItems)
+{
+	// Move forward by the specified number of items
+	pVoice->Skip(L"Sentence", numItems, NULL);
+}

@@ -57,6 +57,8 @@ public:
 	virtual void OnSpeakQuieter();
 	virtual void OnXMLProcessing();
 	virtual void OnUpdateXMLProcessing(CCmdUI* pCmdUI);
+	virtual void OnRewind();
+	virtual void OnFastForward();
 	//}}AFX_VIRTUAL
 
 // Implementation

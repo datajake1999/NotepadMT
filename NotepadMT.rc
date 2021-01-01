@@ -188,8 +188,10 @@ BEGIN
 		MENUITEM "Speak &Selected Text\tCtrl+F5",                  ID_TTS_SPEAKSEL
 		MENUITEM "&Pause/Resume\tF6",                  ID_TTS_PAUSE
 		MENUITEM "S&top\tF7",                  ID_TTS_STOP
+		MENUITEM "&Rewind\tCtrl+F6",                  ID_TTS_REWIND
+		MENUITEM "&Fast Forward\tCtrl+F7",                  ID_TTS_FASTFORWARD
 		MENUITEM "Convert document to &WAV...\tF8",                  ID_TTS_CREATEWAV
-		MENUITEM "P&lay WAV...\tCTRL+F8",                  ID_TTS_PLAYWAV
+		MENUITEM "P&lay WAV...\tCtrl+F8",                  ID_TTS_PLAYWAV
 		MENUITEM "&Reinitialize SAPI\tF9",                  ID_TTS_RESET
 		MENUITEM "Enable &XML tag processing\tF4",                  ID_TTS_XMLPROC
 	END
@@ -249,6 +251,8 @@ BEGIN
 	VK_F5,          ID_TTS_SPEAKSEL,         VIRTKEY,CONTROL
 	VK_F6,          ID_TTS_PAUSE,         VIRTKEY
 	VK_F7,          ID_TTS_STOP,         VIRTKEY
+	VK_F6,          ID_TTS_REWIND,         VIRTKEY,CONTROL
+	VK_F7,          ID_TTS_FASTFORWARD,         VIRTKEY,CONTROL
 	VK_F8,          ID_TTS_CREATEWAV,         VIRTKEY
 	VK_F8,          ID_TTS_PLAYWAV,         VIRTKEY,CONTROL
 	VK_F9,          ID_TTS_RESET,         VIRTKEY
@@ -438,6 +442,8 @@ BEGIN
 	ID_TTS_SPEAKSEL "Speak selected text\nSpeak Selected"
 	ID_TTS_PAUSE "Pause or resume speech\nPause/Resume"
 	ID_TTS_STOP "Stop speech\nStop"
+	ID_TTS_REWIND "Skip back 1 sentence\nRewind"
+	ID_TTS_FASTFORWARD "Skip forward 1 sentence\nFast Forward"
 	ID_TTS_CREATEWAV "Convert document to a WAV file\nCreate WAV"
 	ID_TTS_PLAYWAV "Play a WAV file through SAPI\nPlay WAV"
 	ID_TTS_RESET "Reinitialize SAPI\nReset"

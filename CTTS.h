@@ -33,6 +33,8 @@ public:
 	void volumeDown();
 	void setXMLProcessing(bool value);
 	bool getXMLProcessing();
+	void rewind(signed long numItems);
+	void fastForward(signed long numItems);
 };
 
 #endif // !defined(CTTS_H)

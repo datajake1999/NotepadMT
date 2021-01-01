@@ -48,6 +48,8 @@ BEGIN_MESSAGE_MAP(CNotepadMTView, CEditView)
 	ON_COMMAND(ID_TTS_VOLUMEDOWN, OnSpeakQuieter)
 	ON_COMMAND(ID_TTS_XMLPROC, OnXMLProcessing)
 	ON_UPDATE_COMMAND_UI(ID_TTS_XMLPROC, OnUpdateXMLProcessing)
+	ON_COMMAND(ID_TTS_REWIND, OnRewind)
+	ON_COMMAND(ID_TTS_FASTFORWARD, OnFastForward)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -277,6 +279,16 @@ void CNotepadMTView::OnXMLProcessing()
 void CNotepadMTView::OnUpdateXMLProcessing(CCmdUI* pCmdUI)
 {
 	pCmdUI->SetCheck(TTS.getXMLProcessing());
+}
+
+void CNotepadMTView::OnRewind()
+{
+	TTS.rewind(1);
+}
+
+void CNotepadMTView::OnFastForward()
+{
+	TTS.fastForward(1);
 }
 
 /////////////////////////////////////////////////////////////////////////////
