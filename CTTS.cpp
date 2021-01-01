@@ -208,12 +208,22 @@ bool CTTS::getXMLProcessing()
 
 void CTTS::rewind(signed long numItems)
 {
+	// If a WAV file is open, don't call Skip
+	if (WAVOpen == true)
+	{
+		return;
+	}
 	// Move back by the specified number of items
 	pVoice->Skip(L"Sentence", numItems*-1, NULL);
 }
 
 void CTTS::fastForward(signed long numItems)
 {
+	// If a WAV file is open, don't call Skip
+	if (WAVOpen == true)
+	{
+		return;
+	}
 	// Move forward by the specified number of items
 	pVoice->Skip(L"Sentence", numItems, NULL);
 }
