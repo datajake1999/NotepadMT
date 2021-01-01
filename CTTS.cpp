@@ -152,6 +152,8 @@ void CTTS::pauseResume()
 
 void CTTS::stop()
 {
+	// If a WAV file is open, close it
+	closeWAV();
 	// Speak a null string
 	speak(NULL);
 }
