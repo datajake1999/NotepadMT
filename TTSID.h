@@ -13,3 +13,4 @@
 #define ID_TTS_XMLPROC 0xEB0b
 #define ID_TTS_REWIND 0xEB0c
 #define ID_TTS_FASTFORWARD 0xEB0d
+#define ID_TTS_REPEAT 0xEB0e

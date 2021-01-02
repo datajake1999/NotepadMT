@@ -35,6 +35,7 @@ public:
 	bool getXMLProcessing();
 	void rewind(signed long numItems);
 	void fastForward(signed long numItems);
+	void repeat();
 };
 
 #endif // !defined(CTTS_H)

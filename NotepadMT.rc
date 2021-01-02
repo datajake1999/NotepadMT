@@ -190,6 +190,7 @@ BEGIN
 		MENUITEM "S&top\tF7",                  ID_TTS_STOP
 		MENUITEM "&Rewind\tCtrl+F6",                  ID_TTS_REWIND
 		MENUITEM "&Fast Forward\tCtrl+F7",                  ID_TTS_FASTFORWARD
+		MENUITEM "R&epeat\tCtrl+Alt+R",                  ID_TTS_REPEAT
 		MENUITEM "Convert document to &WAV...\tF8",                  ID_TTS_CREATEWAV
 		MENUITEM "P&lay WAV...\tCtrl+F8",                  ID_TTS_PLAYWAV
 		MENUITEM "Re&initialize SAPI\tF9",                  ID_TTS_RESET
@@ -253,6 +254,7 @@ BEGIN
 	VK_F7,          ID_TTS_STOP,         VIRTKEY
 	VK_F6,          ID_TTS_REWIND,         VIRTKEY,CONTROL
 	VK_F7,          ID_TTS_FASTFORWARD,         VIRTKEY,CONTROL
+	"R",          ID_TTS_REPEAT,         VIRTKEY,CONTROL,ALT
 	VK_F8,          ID_TTS_CREATEWAV,         VIRTKEY
 	VK_F8,          ID_TTS_PLAYWAV,         VIRTKEY,CONTROL
 	VK_F9,          ID_TTS_RESET,         VIRTKEY
@@ -444,6 +446,7 @@ BEGIN
 	ID_TTS_STOP "Stop speech\nStop"
 	ID_TTS_REWIND "Skip back 1 sentence\nRewind"
 	ID_TTS_FASTFORWARD "Skip forward 1 sentence\nFast Forward"
+	ID_TTS_REPEAT "Repeat the current sentence\nRepeat"
 	ID_TTS_CREATEWAV "Convert document to a WAV file\nCreate WAV"
 	ID_TTS_PLAYWAV "Play a WAV file through SAPI\nPlay WAV"
 	ID_TTS_RESET "Reinitialize SAPI\nReset"

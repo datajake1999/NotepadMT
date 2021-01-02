@@ -59,6 +59,7 @@ public:
 	virtual void OnUpdateXMLProcessing(CCmdUI* pCmdUI);
 	virtual void OnRewind();
 	virtual void OnFastForward();
+	virtual void OnRepeatSentence();
 	//}}AFX_VIRTUAL
 
 // Implementation

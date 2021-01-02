@@ -50,6 +50,7 @@ BEGIN_MESSAGE_MAP(CNotepadMTView, CEditView)
 	ON_UPDATE_COMMAND_UI(ID_TTS_XMLPROC, OnUpdateXMLProcessing)
 	ON_COMMAND(ID_TTS_REWIND, OnRewind)
 	ON_COMMAND(ID_TTS_FASTFORWARD, OnFastForward)
+	ON_COMMAND(ID_TTS_REPEAT, OnRepeatSentence)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -289,6 +290,11 @@ void CNotepadMTView::OnRewind()
 void CNotepadMTView::OnFastForward()
 {
 	TTS.fastForward(1);
+}
+
+void CNotepadMTView::OnRepeatSentence()
+{
+	TTS.repeat();
 }
 
 /////////////////////////////////////////////////////////////////////////////

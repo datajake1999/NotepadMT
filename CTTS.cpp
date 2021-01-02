@@ -229,3 +229,14 @@ void CTTS::fastForward(signed long numItems)
 	// Move forward by the specified number of items
 	pVoice->Skip(L"Sentence", numItems, NULL);
 }
+
+void CTTS::repeat()
+{
+	// If a WAV file is open, don't call Skip
+	if (WAVOpen == true)
+	{
+		return;
+	}
+	// Repeat the current item
+	pVoice->Skip(L"Sentence", 0, NULL);
+}
