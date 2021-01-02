@@ -191,10 +191,10 @@ BEGIN
 		MENUITEM "&Rewind\tCtrl+F6",                  ID_TTS_REWIND
 		MENUITEM "&Fast Forward\tCtrl+F7",                  ID_TTS_FASTFORWARD
 		MENUITEM "R&epeat\tCtrl+Alt+R",                  ID_TTS_REPEAT
-		MENUITEM "Convert document to &WAV...\tF8",                  ID_TTS_CREATEWAV
+		MENUITEM "Convert Document to &WAV...\tF8",                  ID_TTS_CREATEWAV
 		MENUITEM "P&lay WAV...\tCtrl+F8",                  ID_TTS_PLAYWAV
 		MENUITEM "Re&initialize SAPI\tF9",                  ID_TTS_RESET
-		MENUITEM "Enable &XML tag processing\tF4",                  ID_TTS_XMLPROC
+		MENUITEM "Enable &XML Tag Processing\tF4",                  ID_TTS_XMLPROC
 	END
 	POPUP "&View"
 	BEGIN
