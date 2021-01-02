@@ -195,6 +195,10 @@ BEGIN
 		MENUITEM "P&lay WAV...\tCtrl+F8",                  ID_TTS_PLAYWAV
 		MENUITEM "Re&initialize SAPI\tF9",                  ID_TTS_RESET
 		MENUITEM "Enable &XML Tag Processing\tF4",                  ID_TTS_XMLPROC
+		MENUITEM "Speak Faster\tCtrl+Alt+PageUp",                  ID_TTS_RATEUP
+		MENUITEM "Speak Slower\tCtrl+Alt+PageDown",                  ID_TTS_RATEDOWN
+		MENUITEM "Speak Louder\tCtrl+Alt+Up",                  ID_TTS_VOLUMEUP
+		MENUITEM "Speak Quieter\tCtrl+Alt+Down",                  ID_TTS_VOLUMEDOWN
 	END
 	POPUP "&View"
 	BEGIN
@@ -451,6 +455,10 @@ BEGIN
 	ID_TTS_PLAYWAV "Play a WAV file through SAPI\nPlay WAV"
 	ID_TTS_RESET "Reinitialize SAPI\nReset"
 	ID_TTS_XMLPROC "Enable or disable processing of SAPI XML tags\nEnable/Disable XML Processing"
+	ID_TTS_RATEUP "Increase speech rate\nSpeak Faster"
+	ID_TTS_RATEDOWN "Decrease speech rate\nSpeak Slower"
+	ID_TTS_VOLUMEUP "Increase speech volume\nSpeak Louder"
+	ID_TTS_VOLUMEDOWN "Decrease speech volume\nSpeak Quieter"
 END
 
 STRINGTABLE DISCARDABLE 
