@@ -167,6 +167,7 @@ void CNotepadMTView::OnFormatFont()
 	if (font != NULL)
 	{
 		font->GetLogFont(&lf);
+		delete font;
 	}
 	CFontDialog FontDialog(&lf);
 	if (FontDialog.DoModal() == IDOK)
@@ -186,6 +187,7 @@ void CNotepadMTView::OnSpeakDocument()
 	unsigned short *text2speak = new unsigned short[strsize];
 	MultiByteToWideChar(CP_UTF8, 0, text, -1, text2speak, strsize);
 	TTS.speak(text2speak);
+	delete[] text2speak;
 }
 
 void CNotepadMTView::OnSpeakSelected()
@@ -196,6 +198,7 @@ void CNotepadMTView::OnSpeakSelected()
 	unsigned short *text2speak = new unsigned short[strsize];
 	MultiByteToWideChar(CP_UTF8, 0, text, -1, text2speak, strsize);
 	TTS.speak(text2speak);
+	delete[] text2speak;
 }
 
 void CNotepadMTView::OnPauseResume()
@@ -225,6 +228,8 @@ void CNotepadMTView::OnCreateWAV()
 		unsigned short *text2speak = new unsigned short[strsize];
 		MultiByteToWideChar(CP_UTF8, 0, text, -1, text2speak, strsize);
 		TTS.speakToWAV(text2speak, filePath);
+		delete[] filePath;
+		delete[] text2speak;
 	}
 }
 
@@ -239,6 +244,7 @@ void CNotepadMTView::OnPlayWAV()
 		unsigned short *filePath = new unsigned short[strsize];
 		MultiByteToWideChar(CP_UTF8, 0, pathName, -1, filePath, strsize);
 		TTS.playWAV(filePath);
+		delete[] filePath;
 	}
 }
 
